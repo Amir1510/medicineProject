@@ -1,0 +1,427 @@
+.head_content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 10px;
+}
+
+.head_content-title {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+}
+
+.head_content-title-red {
+  font-family: "Montserrat Medium";
+  font-weight: 500;
+  color: #ff0000;
+}
+
+.head_content-title-text {
+  display: flex;
+  line-height: 39px;
+  font-style: normal;
+}
+
+.head_content-title-black {
+  font-family: "Montserrat ExtraLight";
+  font-weight: 200;
+  color: #000000;
+}
+
+.head_content-button {
+  align-self: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  width: 123px;
+  height: 63px;
+  background: #6659fc;
+  border: 0.1px solid rgba(102, 89, 252, 0.3);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head_content-button-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Montserrat Regular";
+}
+
+.content {
+  display: flex;
+  background-color: #f5f5f5;
+}
+
+.content_navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  margin: 0;
+  background-color: #ffffff;
+  width: 388px;
+  align-items: center;
+}
+
+.content_navigation-button {
+  width: 236px;
+  height: 64px;
+  background: #f5f5f5;
+  border: 2px solid rgba(211, 210, 210, 0.3);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 44px;
+}
+
+.content_navigation-button-unactive-link {
+  margin-top: 0;
+}
+
+.content_navigation-button-link {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+  color: #787878;
+  text-decoration: none;
+}
+
+.content_navigation-button-link-active {
+  color: #000000;
+}
+
+.content_block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 50px;
+  margin: 24px 80px;
+}
+
+.content_block-main-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.content_block-main-content-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.content_block-main-content-card-title {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.content_block-main-content-card-address {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.content_block-main-content-card {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.content_block-main-content-list {
+  display: flex;
+  list-style: none;
+  gap: 48px;
+}
+
+.content_block-main-content-list-b {
+  margin-top: 40px;
+}
+
+.content_block-icon-red {
+  margin-top: 20px;
+}
+
+.content_block-main-content {
+  margin-left: 79px;
+}
+
+.content_block-main-content-card-schedule {
+  margin-right: 79px;
+}
+
+.content_block-icon-blue {
+  margin-bottom: 20px;
+}
+
+.content_block-main-content-block {
+  margin-top: 30px;
+}
+
+.content_block-main-content-list {
+  padding: 0;
+}
+
+.content_block-main-content-list-items {
+  background: rgba(0, 128, 0, 0.7);
+  border: 3px solid rgba(0, 128, 0, 0.3);
+  border-radius: 5px;
+  width: 97px;
+  height: 71px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content_block-main-content-button {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.content_block-main-content-links-red {
+  background: rgba(255, 0, 0, 0.7);
+  border: 3px solid rgba(255, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 261px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 47px;
+}
+
+.content_block-main-content-link {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0000ff;
+  margin-top: 40px;
+  margin-bottom: 71px;
+}
+
+.content_block-main-content-card-schedule {
+  width: 362px;
+  height: 579px;
+  background: rgba(245, 245, 245, 0.3);
+  border: 3px solid rgba(211, 210, 210, 0.1);
+  border-radius: 25px;
+  align-self: center;
+}
+
+.content_block-main-content-card-schedule-title {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+  color: #000000;
+  text-align: center;
+}
+
+.content_block-main-content-card-schedule-day {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  list-style: none;
+}
+
+.content_block-main-content-card-schedule-day-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 87vh;
+}
+
+.head_content-title-text-on-s {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+  color: #000000;
+}
+
+.head_content-title-text-on {
+  margin: 78px 94px 438px 118px;
+}
+
+.content_block-donor-question {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+  color: rgba(255, 0, 0, 0.8);
+  width: 1500px;
+  text-align: center;
+}
+
+.content_block-donor-list-items {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+  color: #000000;
+  width: 1500px;
+}
+
+.content_block-donor-list-items-link {
+  color: #0000ff;
+}
+
+.content_block-donor-text-red {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+  color: rgba(255, 0, 0, 0.8);
+  width: 1200px;
+}
+
+.content_block-donor {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-left: 100px;
+}
+
+.content_block-dann-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 171px;
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.content_block-dann-title {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  color: #000000;
+}
+
+.content_block-d {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 50px;
+  margin: 24px 80px;
+  display: flex;
+  justify-content: center;
+  height: 84vh;
+}
+
+.content_block-dann-text {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.content_block-dann {
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+  margin-top: 88px;
+}
+
+.head_content-button-b {
+  align-self: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  width: 123px;
+  height: 63px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head_content-button-link-b {
+  color: black;
+  text-decoration: none;
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.head_content-button-link-l {
+  color: red;
+  text-decoration: none;
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+
+.content_block-main-content-card-red {
+  height: 10px;
+  width: 10px;
+  background: rgba(255, 0, 0, 0.7);
+}
+
+.content_block-main-content-card-d {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.content_block-main-content-card-green {
+  height: 10px;
+  width: 10px;
+  background: rgba(0, 128, 0, 0.7);
+}

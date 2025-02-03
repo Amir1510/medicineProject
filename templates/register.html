@@ -1,0 +1,92 @@
+{% load static %}
+{% if user.is_authenticated %}
+    <meta http-equiv="refresh" content="0; url='/'" />
+{% else %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document - регистрация</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    {% include 'links.html' %}
+  </head>
+  <body>
+    <header class="head_content">
+      <div class="head_content-title">
+        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
+        <div class="head_content-title-text">
+          <h1 class="head_content-title-red">BLOOD</h1>
+          <h1 class="head_content-title-black">LINE</h1>
+        </div>
+      </div>
+      <div class="head_content-button">
+        <a href="/login/" class="head_content-button-link">Войти</a>
+      </div>
+    </header>
+    <!-- вся страница будет в одном контейнере -->
+    <div class="container">
+      <div class="row">
+        <!-- делаем самую простую вёрстку -->
+        <div class="col-md-12">
+                {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+          <h2>Регистрация</h2>
+          <p>Заполните все поля, чтобы создать новый аккаунт.</p>
+          <!-- форма регистрации -->
+          <form method="post" action="{% url 'register' %}">
+              {% csrf_token %}
+            <!-- поле ввода имени -->
+            <div class="form-group">
+                <label for="inputUsername">Имя пользователя</label>
+              {{ form.username }}
+            <!-- поле ввода электронной почты -->
+            <div class="form-group">
+              <label for="inputEmail">Электронная почта</label>
+              {{ form.email }}
+            </div>
+            <!-- поле ввода пароля -->
+            <div class="form-group">
+              <label for="inputPassword">Пароль</label>
+              {{ form.password }}
+            </div>
+            <!-- поле повторного ввода пароля -->
+            <div class="form-group">
+              <label for="ReInputPassword">Повторите пароль</label>
+              {{ form.repeat_password }}
+            </div>
+            <!-- кнопка отправки данных на сервер -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary"
+                >Зарегистрироваться</button
+              >
+            </div>
+            <!-- вход для тех, у кого уже есть аккаунт -->
+            <p>
+              Уже зарегистрированы? <a href="/login/">Войдите в систему</a>.
+            </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endif %}

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOODLINE</title>
+    {% include 'links.html' %}
+  </head>
+  <body class="page">
+    <header class="head_content">
+      <div class="head_content-title">
+        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
+        <div class="head_content-title-text">
+          <h1 class="head_content-title-red">BLOOD</h1>
+          <h1 class="head_content-title-black">LINE</h1>
+        </div>
+      </div>
+      <div class="head_content-button-b">
+        <a href="/" class="head_content-button-link-b">Профиль</a>
+      </div>
+    </header>
+    <main class="content">
+      <nav class="content_navigation">
+        <a
+          class="content_navigation-button content_navigation-button-link content_navigation-button-link-unactive"
+          href="/"
+          >Сдать кровь</a
+        >
+        <a
+          class="content_navigation-button content_navigation-button-unactive-link content_navigation-button-link content_navigation-button-link-unactive"
+          href="/about_us/"
+          >О нас</a
+        >
+      </nav>
+      <article class="content_block-d">
+        <div class="content_block-dann">
+            <h1 class="content_block-dann-title">Профиль</h1>
+            {% for item in filtered_data %}
+            <ul class="content_block-dann-list">
+                <li class="content_block-dann-list-items">Группа крови: {{ item.group_of_blood  }}</li>
+                <li class="content_block-dann-list-items">Возраст: {{ item.age  }} лет</li>
+                <li class="content_block-dann-list-items">Рост: {{ item.height  }} см</li>
+                <li class="content_block-dann-list-items">Вес: {{ item.weight  }} кг</li>
+            {% endfor %}
+            </ul>
+            {% for items in filtered_data2 %}
+            <p class="content_block-dann-text">Ваша почта: {{ items.email }}</p>
+            <p class="content_block-dann-text">Ваше ФИО: {{ items.username }}</p>
+            {% endfor %}
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

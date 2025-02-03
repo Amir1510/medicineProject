@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOODLINE - О нас</title>
+    {% include 'links.html' %}
+  </head>
+  <body class="page">
+    <header class="head_content">
+      <div class="head_content-title">
+        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
+        <div class="head_content-title-text">
+          <h1 class="head_content-title-red">BLOOD</h1>
+          <h1 class="head_content-title-black">LINE</h1>
+        </div>
+      </div>
+      {% include 'verify.html' %}
+    </header>
+    <main class="content">
+      {% include 'navigate.html' %}
+      <article class="content_block">
+        <div class="content_block-donor">
+          <h1 class="content_block-donor-question">Как стать донором?</h1>
+          <ol class="content_block-donor-list-num">
+            <li class="content_block-donor-list-items">
+              Убедитесь, что у вас нет <a
+                class="content_block-donor-list-items-link"
+                href="https://www.gosuslugi.ru/help/faq/donor/102447
+              "
+                target="_blank"
+                >противопоказаний</a
+              >
+              к сдаче крови.
+            </li>
+          </ol>
+          <h1 class="content_block-donor-question">
+            Как подготовится к сдаче крови?
+          </h1>
+          <ul class="content_block-donor-list">
+            <li class="content_block-donor-list-items">
+              Накануне и в день сдачи крови не рекомендуется употреблять жирную,
+              жареную, острую и копченую пищу, а также молочные продукты, яйца и
+              масло, орехи, финики, бананы и авокадо.
+            </li>
+            <li class="content_block-donor-list-items">
+              За 48 часов до визита на станцию переливания нельзя употреблять
+              алкоголь, а за 72 часа - принимать лекарства, содержащие аспирин и
+              анальгетики.
+            </li>
+            <li class="content_block-donor-list-items">
+              Утром нужно легко позавтракать. Натощак сдавать кровь нельзя!
+            </li>
+          </ul>
+          <h1 class="content_block-donor-question">
+            Что делать после сдачи крови?
+          </h1>
+          <ul class="content_block-donor-list">
+            <li class="content_block-donor-list-items">
+              Если вы чувствуете головокружение или слабость, обратитесь к
+              персоналу. Самый простой способ победить головокружение: лечь на
+              спину и поднять ноги выше головы, либо сесть и опустить голову
+              между колен).
+            </li>
+            <li class="content_block-donor-list-items">
+              Воздержитесь от курения в течение часа до и после кроводачи. Не
+              снимайте повязку в течение 3–4 часов, старайтесь , чтобы она не
+              намокла.
+            </li>
+            <li class="content_block-donor-list-items">
+              Старайтесь не подвергаться значительным физическим нагрузкам в
+              течение суток. Воздержитесь от употребления алкоголя в течение
+              суток.
+            </li>
+            <li class="content_block-donor-list-items">
+              Ограничений по вождению автомобиля в день кроводачи нет.
+            </li>
+            <li class="content_block-donor-list-items">
+              За руль мотоцикла можно садиться через 2 часа после кроводачи.
+            </li>
+          </ul>
+          <p class="content_block-donor-text-red">
+            Интервал между сдачей цельной крови 60 дней. Мужчины могут сдавать
+            цельную кровь максимум 5 раз в год, а женщины 4 раза в год.
+          </p>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

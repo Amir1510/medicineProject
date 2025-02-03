@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOODLINE</title>
+    {% include 'links.html' %}
+  </head>
+  <body class="page">
+    <header class="head_content">
+      <div class="head_content-title">
+        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
+        <div class="head_content-title-text">
+          <h1 class="head_content-title-red">BLOOD</h1>
+          <h1 class="head_content-title-black">LINE</h1>
+        </div>
+      </div>
+        {% include 'verify.html' %}
+    </header>
+    <main class="content">
+      {% include 'navigate.html' %}
+      <article class="content_block">
+        <div class="content_block-icon-red">
+          <img
+            class="content_block-link-icon-red"
+            src="{% static 'image/красный лого.svg' %}"
+          />
+        </div>
+        <div class="content_block-main-content">
+          <div class="content_block-main-content-card">
+            <h1 class="content_block-main-content-card-title">
+              Городская клиническая <br />больница № 52, отделение
+              <br />переливания крови
+            </h1>
+            <address class="content_block-main-content-card-address">
+              Пехотная ул., 3, стр. 1, Москва <br />этаж 3 <br />Маршрут
+            </address>
+            <span class="content_block-main-content-card-d">
+              <p>Требуется</p>
+              <div class="content_block-main-content-card-red"></div>
+            </span>
+            <span class="content_block-main-content-card-d">
+              <p>Достаточно</p>
+              <div class="content_block-main-content-card-green"></div>
+            </span>
+            <div class="content_block-main-content-block">
+              <ul class="content_block-main-content-list">
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>0+</p>
+                </li>
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>A+</p>
+                </li>
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>B+</p>
+                </li>
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>AB+</p>
+                </li>
+              </ul>
+              <ul
+                class="content_block-main-content-list content_block-main-content-list-b"
+              >
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>0-</p>
+                </li>
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>A-</p>
+                </li>
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>B-</p>
+                </li>
+                <li
+                  id="content_block-main-content-list-items"
+                  class="content_block-main-content-list-items"
+                >
+                  <p>AB-</p>
+                </li>
+              </ul>
+            </div>
+            <div class="content_block-main-content-links">
+              <a
+                class="content_block-main-content-links-red content_block-main-content-button"
+                href="planing_donor/"
+                >Заплонировать донацию</a
+              >
+              <a
+                class="content_block-main-content-link"
+                href="how_to_be_donors/"
+                target="_blank"
+                >Как стать донором?</a
+              >
+            </div>
+          </div>
+          <article class="content_block-main-content-card-schedule">
+            <h2 class="content_block-main-content-card-schedule-title">
+              График работы:
+            </h2>
+            <ul class="content_block-main-content-card-schedule-day-list">
+              <li class="content_block-main-content-card-schedule-day">
+                Понедельник:
+              </li>
+              <li class="content_block-main-content-card-schedule-day">
+                Вторник:
+              </li>
+              <li class="content_block-main-content-card-schedule-day">
+                Среда:
+              </li>
+              <li class="content_block-main-content-card-schedule-day">
+                Четверг:
+              </li>
+              <li class="content_block-main-content-card-schedule-day">
+                Пятница:
+              </li>
+              <li class="content_block-main-content-card-schedule-day">
+                Суббота:
+              </li>
+              <li class="content_block-main-content-card-schedule-day">
+                Воскресение:
+              </li>
+            </ul>
+          </article>
+        </div>
+        <div class="content_block-icon-blue">
+          <img
+            class="content_block-icon-blue-link"
+            src="{% static 'image/синий лого 1.svg' %}"
+          />
+          <img
+            class="content_block-icon-blue-link"
+            src="{% static 'image/синий лого 2.svg' %}"
+          />
+          <img
+            class="content_block-icon-blue-link"
+            src="{% static 'image/синй лого 3.svg' %}"
+          />
+        </div>
+      </article>
+    </main>
+    <script>
+      const elements = document.querySelectorAll(
+        ".content_block-main-content-list-items"
+      );
+
+      // Устанавливаем слушатель события на клик для каждого элемента
+      elements.forEach((element) => {
+        element.addEventListener("click", function () {
+          // Проверяем текущий цвет элемента
+          if (element.style.backgroundColor === "rgba(255, 0, 0, 0.7)") {
+            element.style.backgroundColor = "rgba(0, 128, 0, 0.7)"; // Меняем на зеленый
+          } else {
+            element.style.backgroundColor = "rgba(255, 0, 0, 0.7)"; // Меняем на красный
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

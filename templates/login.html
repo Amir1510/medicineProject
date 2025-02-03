@@ -1,0 +1,79 @@
+{% load static %}
+{% load static %}
+{% if user.is_authenticated %}
+    <meta http-equiv="refresh" content="0; url='/'" />
+{% else %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOODLINE - Вход</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    {% include 'links.html' %}
+  </head>
+  <body>
+    <header class="head_content">
+      <div class="head_content-title">
+        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
+        <div class="head_content-title-text">
+          <h1 class="head_content-title-red">BLOOD</h1>
+          <h1 class="head_content-title-black">LINE</h1>
+        </div>
+      </div>
+      <div class="head_content-button">
+        <a href="/login/" class="head_content-button-link">Войти</a>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!-- указываем стиль адаптивной вёрстки -->
+        <div class="col-md-12">
+          <!-- пишем заголовок и пояснительный текст -->
+          <h2>Вход</h2>
+          <p>Введите свою почту и пароль.</p>
+                          {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+          <form method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+
+            <div class="form-group">
+              <label for="inputEmail">Электронная почта</label>
+              {{ form.email }}
+            </div>
+            <!-- поле ввода пароля -->
+            <div class="form-group">
+              <label for="inputPassword">Пароль</label>
+              {{ form.password }}
+            </div>
+            <!-- кнопка отправки данных на сервер -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Войти</button>
+
+            </div>
+            <!-- ссылка для тех, у кого ещё нет аккаунта -->
+            <p>
+              Нет аккаунта? <a href="/register/">Создайте его за минуту</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endif %}

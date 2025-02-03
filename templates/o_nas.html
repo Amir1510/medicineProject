@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOODLINE - О нас</title>
+    {% include 'links.html' %}
+  </head>
+  <body class="page">
+    <header class="head_content">
+      <div class="head_content-title">
+        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
+        <div class="head_content-title-text">
+          <h1 class="head_content-title-red">BLOOD</h1>
+          <h1 class="head_content-title-black">LINE</h1>
+        </div>
+      </div>
+      {% include 'verify.html' %}
+    </header>
+    <main class="content">
+      {% include 'navigate.html' %}
+      <article class="content_block">
+        <div>
+          <div class="head_content-title-text-on">
+            <p class="head_content-title-text-on-s">
+              <span class="head_content-title-red">BLOOD</span
+              ><span class="head_content-title-black">LINE</span> - Проект,
+              который стартует в феврале 2025 года. Цель - <br />Разработка
+              веб-сайта для Доноров ОПК ГКБ 52 с <br />помощью, которого доноры
+              получают возможность спланировать <br />донации в соответствии с
+              потребностями отделения, а также получать <br />информацию о
+              количестве донаций и иную полезную информацию, <br />включая
+              потребности отделения. Идея создания сайта была придумана <br />в
+              связи с Неравномерностью потока доноров, которая создает
+              <br />Дополнительную нагрузку на персонал отделения либо не даёт
+              <br />возможности оперативно мобилизовать доноров в случае наличия
+              <br />высокой потребности в крови или её компонентов
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

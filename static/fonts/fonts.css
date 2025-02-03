@@ -1,0 +1,20 @@
+@font-face {
+  src: url(./Montserrat-ExtraLight.ttf) format(truetype),
+    url(./Montserrat-ExtraLight.woff) format(woff),
+    url(./Montserrat-ExtraLight.woff2) format(woff2);
+  font-family: "Montserrat ExtraLight";
+}
+
+@font-face {
+  src: url(./Montserrat-Medium.ttf) format(truetype),
+    url(./Montserrat-Medium.woff) format(woff),
+    url(./Montserrat-Medium.woff2) format(woff2);
+  font-family: "Montserrat Medium";
+}
+
+@font-face {
+  src: url(./Montserrat-Regular.ttf) format(truetype),
+    url(./Montserrat-Regular.woff) format(woff),
+    url(./Montserrat-Regular.woff2) format(woff2);
+  font-family: "Montserrat Regular";
+}
