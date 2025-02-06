@@ -4,12 +4,19 @@
   box-sizing: border-box;
 }
 
-.page {
-  width: 1920px;
-  height: 1080px;
-  margin: 8px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
 }
 
+.page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
 
 h1,
 h2,
@@ -28,8 +35,22 @@ blockquote {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page {
+    max-width: 1200px;
+  }
 }
