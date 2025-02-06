@@ -1,180 +1,195 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BLOODLINE</title>
-    {% include 'links.html' %}
-  </head>
-  <body class="page">
-    <header class="head_content">
-      <div class="head_content-title">
-        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
-        <div class="head_content-title-text">
-          <h1 class="head_content-title-red">BLOOD</h1>
-          <h1 class="head_content-title-black">LINE</h1>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BLOODLINE - Сдать кровь</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  {% include 'links.html' %}
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <img src="{% static 'image/Иконка страницы.svg' %}" alt="BLOODLINE logo" />
+          <span>BLOOD<span class="red">LINE</span></span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about_us/">О нас</a></li>
+            <li><a href="/how_to_be_donors/">Как стать донором</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="/profile/">Профиль</a></li>
+              <li><button onclick="logout()" class="btn btn-outline">Выйти</button></li>
+            {% else %}
+              <li><a href="/login/" class="btn btn-outline btn-primary">Войти</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="info-card container">
+        <h1>Спасайте жизни</h1>
+        <p>Станьте донором крови с BLOODLINE</p>
+        <a href="/planing_donor/" class="btn btn-large btn-primary">Запланировать донацию</a>
+      </div>
+    </section>
+
+    <section class="blood-groups">
+      <div class="container">
+        <h2>Требуемые группы крови</h2>
+        <div class="blood-group-grid">
+          <div class="blood-group" data-group="0+">0+</div>
+          <div class="blood-group" data-group="A+">A+</div>
+          <div class="blood-group" data-group="B+">B+</div>
+          <div class="blood-group" data-group="AB+">AB+</div>
+          <div class="blood-group" data-group="0-">0-</div>
+          <div class="blood-group" data-group="A-">A-</div>
+          <div class="blood-group" data-group="B-">B-</div>
+          <div class="blood-group" data-group="AB-">AB-</div>
         </div>
       </div>
-        {% include 'verify.html' %}
-    </header>
-    <main class="content">
-      {% include 'navigate.html' %}
-      <article class="content_block">
-        <div class="content_block-icon-red">
-          <img
-            class="content_block-link-icon-red"
-            src="{% static 'image/красный лого.svg' %}"
-          />
-        </div>
-        <div class="content_block-main-content">
-          <div class="content_block-main-content-card">
-            <h1 class="content_block-main-content-card-title">
-              Городская клиническая <br />больница № 52, отделение
-              <br />переливания крови
-            </h1>
-            <address class="content_block-main-content-card-address">
-              Пехотная ул., 3, стр. 1, Москва <br />этаж 3 <br />Маршрут
-            </address>
-            <span class="content_block-main-content-card-d">
-              <p>Требуется</p>
-              <div class="content_block-main-content-card-red"></div>
-            </span>
-            <span class="content_block-main-content-card-d">
-              <p>Достаточно</p>
-              <div class="content_block-main-content-card-green"></div>
-            </span>
-            <div class="content_block-main-content-block">
-              <ul class="content_block-main-content-list">
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>0+</p>
-                </li>
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>A+</p>
-                </li>
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>B+</p>
-                </li>
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>AB+</p>
-                </li>
-              </ul>
-              <ul
-                class="content_block-main-content-list content_block-main-content-list-b"
-              >
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>0-</p>
-                </li>
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>A-</p>
-                </li>
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>B-</p>
-                </li>
-                <li
-                  id="content_block-main-content-list-items"
-                  class="content_block-main-content-list-items"
-                >
-                  <p>AB-</p>
-                </li>
-              </ul>
-            </div>
-            <div class="content_block-main-content-links">
-              <a
-                class="content_block-main-content-links-red content_block-main-content-button"
-                href="planing_donor/"
-                >Заплонировать донацию</a
-              >
-              <a
-                class="content_block-main-content-link"
-                href="how_to_be_donors/"
-                target="_blank"
-                >Как стать донором?</a
-              >
-            </div>
-          </div>
-          <article class="content_block-main-content-card-schedule">
-            <h2 class="content_block-main-content-card-schedule-title">
-              График работы:
-            </h2>
-            <ul class="content_block-main-content-card-schedule-day-list">
-              <li class="content_block-main-content-card-schedule-day">
-                Понедельник:
-              </li>
-              <li class="content_block-main-content-card-schedule-day">
-                Вторник:
-              </li>
-              <li class="content_block-main-content-card-schedule-day">
-                Среда:
-              </li>
-              <li class="content_block-main-content-card-schedule-day">
-                Четверг:
-              </li>
-              <li class="content_block-main-content-card-schedule-day">
-                Пятница:
-              </li>
-              <li class="content_block-main-content-card-schedule-day">
-                Суббота:
-              </li>
-              <li class="content_block-main-content-card-schedule-day">
-                Воскресение:
-              </li>
-            </ul>
-          </article>
-        </div>
-        <div class="content_block-icon-blue">
-          <img
-            class="content_block-icon-blue-link"
-            src="{% static 'image/синий лого 1.svg' %}"
-          />
-          <img
-            class="content_block-icon-blue-link"
-            src="{% static 'image/синий лого 2.svg' %}"
-          />
-          <img
-            class="content_block-icon-blue-link"
-            src="{% static 'image/синй лого 3.svg' %}"
-          />
-        </div>
-      </article>
-    </main>
-    <script>
-      const elements = document.querySelectorAll(
-        ".content_block-main-content-list-items"
-      );
+    </section>
 
-      // Устанавливаем слушатель события на клик для каждого элемента
-      elements.forEach((element) => {
-        element.addEventListener("click", function () {
-          // Проверяем текущий цвет элемента
-          if (element.style.backgroundColor === "rgba(255, 0, 0, 0.7)") {
-            element.style.backgroundColor = "rgba(0, 128, 0, 0.7)"; // Меняем на зеленый
-          } else {
-            element.style.backgroundColor = "rgba(255, 0, 0, 0.7)"; // Меняем на красный
-          }
+    <section class="info-section">
+      <div class="container">
+        <h2>Почему важно быть донором?</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <i class="fas fa-heart"></i>
+            <h3>Спасение жизней</h3>
+            <p>Ваша кровь может спасти до трех жизней за одну донацию.</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-tint"></i>
+            <h3>Постоянная потребность</h3>
+            <p>Каждые 2 секунды кому-то требуется переливание крови.</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-user-md"></i>
+            <h3>Медицинская помощь</h3>
+            <p>Донорская кровь необходима для различных медицинских процедур.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="donation-center">
+      <div class="container">
+        <h2>Центр донации</h2>
+        <div class="donation-info">
+          <div class="info-card">
+            <h3><i class="fas fa-hospital-alt"></i> Городская клиническая больница № 52</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Пехотная ул., 3, стр. 1, Москва</p>
+            <p><i class="fas fa-level-up-alt"></i> этаж 3</p>
+            <button id="showMapBtn" class="btn btn-outline btn-primary"><i class="fas fa-directions"></i> Маршрут</button>
+          </div>
+          <div class="info-card">
+            <h3><i class="far fa-clock"></i> График работы</h3>
+            <ul class="schedule">
+              <li>Понедельник - Пятница: 9:00 - 18:00</li>
+              <li>Суббота: 10:00 - 14:00</li>
+              <li>Воскресенье: Выходной</li>
+            </ul>
+          </div>
+        </div>
+        <div id="map" class="map-container" style="display: none;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 BLOODLINE</p>
+    </div>
+  </footer>
+
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=ru_RU" type="text/javascript"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinksContainer = document.querySelector('.nav-links-container');
+
+      menuToggle.addEventListener('click', function() {
+        navLinksContainer.classList.toggle('active');
+      });
+
+      // Закрывать меню при клике на ссылку
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinksContainer.classList.remove('active');
         });
       });
-    </script>
-  </body>
+
+      // Функционал карты
+      const showMapBtn = document.getElementById('showMapBtn');
+      const mapContainer = document.getElementById('map');
+      let map;
+
+      showMapBtn.addEventListener('click', function() {
+        if (mapContainer.style.display === 'none') {
+          mapContainer.style.display = 'block';
+          if (!map) {
+            ymaps.ready(initMap);
+          }
+        } else {
+          mapContainer.style.display = 'none';
+        }
+      });
+
+      function initMap() {
+        map = new ymaps.Map('map', {
+          center: [55.807754, 37.495313], // Координаты ГКБ №52
+          zoom: 15
+        });
+
+        const placemark = new ymaps.Placemark([55.807754, 37.495313], {
+          balloonContent: 'ГКБ №52, Отделение переливания крови'
+        });
+
+        map.geoObjects.add(placemark);
+      }
+
+      // Функционал выбора группы крови
+      const bloodGroups = document.querySelectorAll(".blood-group");
+      bloodGroups.forEach((group) => {
+        group.addEventListener("click", function () {
+          this.classList.toggle("active");
+          updateStatus(this.dataset.group, this.classList.contains("active"));
+        });
+      });
+
+      function updateStatus(group, isActive) {
+        console.log(`Blood group ${group} is now ${isActive ? 'active' : 'inactive'}`);
+      }
+    });
+
+    function logout() {
+      fetch("{% url 'logout' %}", {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': '{{ csrf_token }}',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        credentials: 'include',
+      }).then(response => {
+        if (response.ok) {
+          window.location.href = "/";
+        }
+      });
+    }
+  </script>
+</body>
 </html>

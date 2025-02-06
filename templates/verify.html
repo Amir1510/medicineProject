@@ -1,29 +1,29 @@
-        {% if user.is_authenticated %}
-        <div class="head_content-button-b">
-        
-        <button onclick="logout()" class="head_content-button-link-l">Выйти</button>
-        </div>>
-        <div class="head_content-button-b">
-        <a href="/profile/" class="head_content-button-link-b">Профиль</a>
-        {% else %}
-        <div class="head_content-button">     
-        <a href="/login/" class="head_content-button-link">Войти</a>
-        {% endif %}
-        </div>
-        
+{% if user.is_authenticated %}
+<div class="head_content-button-b">
+
+<button onclick="logout()" class="head_content-button-link-l">Выйти</button>
+</div>
+<div class="head_content-button-b">
+<a href="/profile/" class="head_content-button-link-b">Профиль</a>
+{% else %}
+<div class="head_content-button">     
+<a href="/login/" class="head_content-button-link">Войти</a>
+{% endif %}
+</div>
+
 <script>
 function logout() {
-    fetch("{% url 'logout' %}", {
-        method: 'POST',
-        headers: {
-            'X-CSRFToken': '{{ csrf_token }}',  // CSRF-токен
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        credentials: 'include',
-    }).then(response => {
-        if (response.ok) {
-            window.location.href = "/";  // Перенаправление после выхода
-        }
-    });
+fetch("{% url 'logout' %}", {
+method: 'POST',
+headers: {
+    'X-CSRFToken': '{{ csrf_token }}',  // CSRF-токен
+    'Content-Type': 'application/x-www-form-urlencoded',
+},
+credentials: 'include',
+}).then(response => {
+if (response.ok) {
+    window.location.href = "/";  // Перенаправление после выхода
+}
+});
 }
 </script>

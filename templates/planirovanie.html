@@ -1,28 +1,22 @@
 {% load static %}
-        {% if not user.is_authenticated %}
-        <meta http-equiv="refresh" content="0; url='/'" />
-        {% else %}
-
+{% if not user.is_authenticated %}
+  <meta http-equiv="refresh" content="0; url='/'" />
+{% else %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document - регистрация</title>
+    <title>BLOODLINE - Планирование донации</title>
     {% include 'links.html' %}
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
   </head>
-  
-  <body>
+  <body class="page">
     <header class="head_content">
       <div class="head_content-title">
-        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" />
+        <img class="head_content-title-image" src="{% static 'image/Иконка страницы.svg' %}" alt="BLOODLINE logo" />
         <div class="head_content-title-text">
-          <h1 class="head_content-title-red">BLOOD</h1>
-          <h1 class="head_content-title-black">LINE</h1>
+          <h1><span class="head_content-title-red">BLOOD</span><span class="head_content-title-black">LINE</span></h1>
         </div>
       </div>
       {% include 'verify.html' %}
@@ -31,48 +25,44 @@
       {% include 'navigate.html' %}
       <article class="content_block">
         <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2>Анкета</h2>
-              <p>Заполните все поля, чтобы вы смогли сдать кровь.</p>
-                            {% if form.errors %}
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <div class="alert alert-danger">
-                                    <strong>{{ error|escape }}</strong>
-                                </div>
-                        {% endfor %}
-                        {% endfor %}
-                        {% for error in form.non_field_errors %}
-                            <div class="alert alert-danger">
-                                <strong>{{ error|escape }}</strong>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+              <h2 class="text-center mb-4">Анкета</h2>
+              <p class="text-center mb-4">Заполните все поля, чтобы вы смогли сдать кровь.</p>
+              {% if form.errors %}
+                {% for field in form %}
+                  {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                    </div>
+                  {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                  <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                  </div>
+                {% endfor %}
+              {% endif %}
               <form action="{% url 'planing_donor' %}" method="post">
-                  {% csrf_token %}
+                {% csrf_token %}
                 <div class="form-group">
-                <label>Группа крови</label>
-              {{ form.group_of_blood }}
+                  <label>Группа крови</label>
+                  {{ form.group_of_blood }}
                 </div>
-
                 <div class="form-group">
                   <label>Возраст</label>
                   {{ form.age }}
                 </div>
-
                 <div class="form-group">
                   <label>Рост</label>
                   {{ form.height }}
                 </div>
-
                 <div class="form-group">
                   <label>Вес</label>
                   {{ form.weight }}
                 </div>
-
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Продолжить</button>
+                  <button type="submit" class="btn btn-primary btn-block">Продолжить</button>
                 </div>
               </form>
             </div>
@@ -83,4 +73,3 @@
   </body>
 </html>
 {% endif %}
-
