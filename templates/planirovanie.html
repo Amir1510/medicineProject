@@ -59,7 +59,7 @@
             </div>
           {% endfor %}
         {% endif %}
-        <form action="{% url 'planing_donor' %}" method="post" class="auth-form">
+        <form action="{% url 'planing_donor' %}" method="post" class="auth-form" id="planingForm">
           {% csrf_token %}
           <div class="form-group">
             <label>Группа крови</label>
@@ -90,41 +90,41 @@
       <p>&copy; 2025 BLOODLINE</p>
     </div>
   </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuToggle = document.querySelector(".menu-toggle");
-      const navLinksContainer = document.querySelector(
-        ".nav-links-container"
-      );
-
-      menuToggle.addEventListener("click", () => {
-        navLinksContainer.classList.toggle("active");
-      });
-
-      // Закрывать меню при клике на ссылку
-      const navLinks = document.querySelectorAll(".nav-links a");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinksContainer.classList.remove("active");
-        });
-      });
-
-      // Закрывать меню при клике вне его
-      document.addEventListener("click", (event) => {
-        const isClickInsideNav =
-          navLinksContainer.contains(event.target) ||
-          menuToggle.contains(event.target);
-        if (
-          !isClickInsideNav &&
-          navLinksContainer.classList.contains("active")
-        ) {
-          navLinksContainer.classList.remove("active");
-        }
-      });
-    });
-  </script>
 
   <script src="{% static 'js/script.js' %}"></script>
+  <script>
+document.getElementById('planingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.submit();
+  window.location.href = "{% url 'schedule_donation' %}";
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle")
+  const navLinksContainer = document.querySelector(".nav-links-container")
+
+  menuToggle.addEventListener("click", () => {
+    navLinksContainer.classList.toggle("active")
+  })
+
+  // Закрывать меню при клике на ссылку
+  const navLinks = document.querySelectorAll(".nav-links a")
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinksContainer.classList.remove("active")
+    })
+  })
+
+  // Закрывать меню при клике вне его
+  document.addEventListener("click", (event) => {
+    const isClickInsideNav = navLinksContainer.contains(event.target) || menuToggle.contains(event.target)
+    if (!isClickInsideNav && navLinksContainer.classList.contains("active")) {
+      navLinksContainer.classList.remove("active")
+    }
+  })
+
+})
+</script>
 </body>
 </html>
 {% endif %}

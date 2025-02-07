@@ -1,0 +1,116 @@
+{% load static %}
+{% if not user.is_authenticated %}
+  <meta http-equiv="refresh" content="0; url='/'" />
+{% else %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BLOODLINE - Планирование донации</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  {% include 'links.html' %}
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+          <nav class="nav">
+            <a href="/" class="logo">
+              <img src="{% static 'image/Иконка страницы.svg' %}" alt="BLOODLINE logo" />
+              <span>BLOOD<span class="red">LINE</span></span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links-container">
+              <ul class="nav-links">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about_us/">О нас</a></li>
+                <li><a href="/how_to_be_donors/">Как стать донором</a></li>
+                {% if user.is_authenticated %}
+                  <li><a href="/profile/">Профиль</a></li>
+                  <li><button onclick="logout()" class="btn btn-outline">Выйти</button></li>
+                {% else %}
+                  <li><a href="/login/" class="btn btn-outline btn-primary">Войти</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <div class="container">
+          <div class="auth-form-container">
+            <h2>Планирование донации</h2>
+            <p>Выберите удобную для вас дату и время донации.</p>
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+            <form action="{% url 'schedule_donation' %}" method="post" class="auth-form">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="donation_date">Дата донации</label>
+                <input type="date" id="donation_date" name="donation_date" required class="form-control" min="{{ today_date }}">
+              </div>
+              <div class="form-group">
+                <label for="donation_time">Время донации</label>
+                <select id="donation_time" name="donation_time" required class="form-control">
+                  <option value="">Выберите время</option>
+                  {% for hour in hours %}
+                    {% for minute in minutes %}
+                      <option value="{{ hour }}:{{ minute }}">{{ hour }}:{{ minute }}</option>
+                    {% endfor %}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Запланировать донацию</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 BLOODLINE</p>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/script.js' %}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle")
+        const navLinksContainer = document.querySelector(".nav-links-container")
+      
+        menuToggle.addEventListener("click", () => {
+          navLinksContainer.classList.toggle("active")
+        })
+      
+        // Закрывать меню при клике на ссылку
+        const navLinks = document.querySelectorAll(".nav-links a")
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinksContainer.classList.remove("active")
+          })
+        })
+      
+        // Закрывать меню при клике вне его
+        document.addEventListener("click", (event) => {
+          const isClickInsideNav = navLinksContainer.contains(event.target) || menuToggle.contains(event.target)
+          if (!isClickInsideNav && navLinksContainer.classList.contains("active")) {
+            navLinksContainer.classList.remove("active")
+          }
+        })
+      
+      })
+  </script>
+</body>
+</html>
+{% endif %}
