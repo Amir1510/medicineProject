@@ -172,6 +172,7 @@
 
 .content_block:hover {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(95%);
 }
 
 .content_block-main-content {
@@ -497,6 +498,7 @@ body {
   background-color: var(--primary-color);
   color: var(--white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(95%);
 }
 
 .btn-outline {
@@ -508,6 +510,7 @@ body {
 .btn-outline:hover {
   background-color: var(--primary-color);
   color: var(--white);
+  transform: scale(95%);
 }
 
 .btn-large {
@@ -564,6 +567,7 @@ body {
 .blood-group.active {
   background-color: var(--primary-color);
   color: var(--white);
+  transform: scale(95%);
 }
 
 .donation-center {
@@ -842,4 +846,9 @@ input[type="time"]::-webkit-clear-button {
   .btn {
     width: 100%;
   }
+}
+
+.btn-end {
+  text-align: center;
+  border: none;
 }
