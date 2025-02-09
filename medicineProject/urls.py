@@ -15,18 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.template.context_processors import request
 from django.urls import path
-from medicine_app.views import *
+from medicine_app import views
 from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('about_us/', about),
-    path('how_to_be_donors/', donors),
-    path('planing_donor/', PlanView.as_view(), name='planing_donor'),
-    path('login/', SignInView.as_view(), name='login'),
-    path('register/', SignUpView.as_view(), name='register'),
-    path('profile/', get_blood_date, name='profile'),
-    path('logout/', auth_views.LogoutView.as_view(next_page=''), name='logout'),
+    path('', views.index, name='index'),
+    path('about_us/', views.about, name='about'),
+    path('how_to_be_donors/', views.donors, name='donors'),
+    path('planing_donor/', views.PlanView.as_view(), name='planing_donor'),
+    path('login/', views.SignInView.as_view(), name='login'),
+    path('register/', views.SignUpView.as_view(), name='register'),
+    path('profile/', views.profile, name='profile'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
+    path('schedule_donation/', views.schedule_donation, name='schedule_donation'),
+    path('update_donor_info/', views.update_donor_info, name='update_donor_info'),
+    path('check_donor_info/', views.check_donor_info, name='check_donor_info'),
 ]
+
