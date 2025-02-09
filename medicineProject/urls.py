@@ -33,4 +33,3 @@ urlpatterns = [
     path('update_donor_info/', views.update_donor_info, name='update_donor_info'),
     path('check_donor_info/', views.check_donor_info, name='check_donor_info'),
 ]
-
