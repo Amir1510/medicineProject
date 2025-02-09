@@ -67,7 +67,7 @@
               <p><strong>Возраст:</strong> {{ item.age }} лет</p>
               <p><strong>Рост:</strong> {{ item.height }} см</p>
               <p><strong>Вес:</strong> {{ item.weight }} кг</p>
-              <a href="/planing_donor/" class="btn btn-large btn-primary btn-end">Изменить данные</a>
+              <a href="{% url 'planing_donor' %}?source=profile" class="btn btn-large btn-primary btn-end">Изменить данные</a>
             </div>
             
             {% endfor %} {% for items in filtered_data2 %}

@@ -58,8 +58,8 @@
               <strong>{{ error|escape }}</strong>
             </div>
           {% endfor %}
-        {% endif %}
-        <form action="{% url 'planing_donor' %}" method="post" class="auth-form" id="planingForm">
+          {% endif %}
+        <form action="{% url 'update_donor_info' %}" method="post" class="auth-form">
           {% csrf_token %}
           <div class="form-group">
             <label>Группа крови</label>
@@ -77,8 +77,9 @@
             <label>Вес</label>
             {{ form.weight }}
           </div>
+          <input type="hidden" name="source" value="{{ request.GET.source|default:'' }}">
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Продолжить</button>
+            <button type="submit" class="btn btn-primary">Сохранить и продолжить</button>
           </div>
         </form>
       </div>
@@ -93,19 +94,6 @@
 
   <script src="{% static 'js/script.js' %}"></script>
   <script>
-document.getElementById('planingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  this.submit();
-  window.location.href = "{% url 'schedule_donation' %}";
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.querySelector(".menu-toggle")
-  const navLinksContainer = document.querySelector(".nav-links-container")
-
-  menuToggle.addEventListener("click", () => {
-    navLinksContainer.classList.toggle("active")
-  })
 
   // Закрывать меню при клике на ссылку
   const navLinks = document.querySelectorAll(".nav-links a")
