@@ -13,32 +13,41 @@
   {% include 'links.html' %}
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <a href="/" class="logo">
-          <img src="{% static 'image/Иконка страницы.svg' %}" alt="BLOODLINE logo" />
-          <span>BLOOD<span class="red">LINE</span></span>
-        </a>
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="/">Главная</a></li>
-            <li><a href="/about_us/">О нас</a></li>
-            <li><a href="/how_to_be_donors/">Как стать донором</a></li>
-            {% if user.is_authenticated %}
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="/" class="logo">
+            <img
+              src="{% static 'image/Иконка страницы.svg' %}"
+              alt="BLOODLINE logo"
+            />
+            <span>BLOOD<span class="red">LINE</span></span>
+          </a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links-container">
+            <ul class="nav-links">
+              <li><a href="/">Главная</a></li>
+              <li><a href="/about_us/">О нас</a></li>
+              <li><a href="/how_to_be_donors/">Как стать донором</a></li>
+              {% if user.is_authenticated %}
               <li><a href="/profile/">Профиль</a></li>
-              <li><button onclick="logout()" class="btn btn-outline">Выйти</button></li>
-            {% else %}
-              <li><a href="/login/" class="btn btn-outline btn-primary">Войти</a></li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
+              <li>
+                <button onclick="logout()" class="btn btn-outline">
+                  Выйти
+                </button>
+              </li>
+              {% else %}
+              <li>
+                <a href="/login/" class="btn btn-outline btn-primary">Войти</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
 
   <main class="main-content">
     <div class="container">
@@ -94,25 +103,32 @@
 
   <script src="{% static 'js/script.js' %}"></script>
   <script>
-
-  // Закрывать меню при клике на ссылку
-  const navLinks = document.querySelectorAll(".nav-links a")
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinksContainer.classList.remove("active")
-    })
-  })
-
-  // Закрывать меню при клике вне его
-  document.addEventListener("click", (event) => {
-    const isClickInsideNav = navLinksContainer.contains(event.target) || menuToggle.contains(event.target)
-    if (!isClickInsideNav && navLinksContainer.classList.contains("active")) {
-      navLinksContainer.classList.remove("active")
-    }
-  })
-
-})
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle")
+        const navLinksContainer = document.querySelector(".nav-links-container")
+      
+        menuToggle.addEventListener("click", () => {
+          navLinksContainer.classList.toggle("active")
+        })
+      
+        // Закрывать меню при клике на ссылку
+        const navLinks = document.querySelectorAll(".nav-links a")
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinksContainer.classList.remove("active")
+          })
+        })
+      
+        // Закрывать меню при клике вне его
+        document.addEventListener("click", (event) => {
+          const isClickInsideNav = navLinksContainer.contains(event.target) || menuToggle.contains(event.target)
+          if (!isClickInsideNav && navLinksContainer.classList.contains("active")) {
+            navLinksContainer.classList.remove("active")
+          }
+        })
+      
+      })
+  </script>
 </body>
 </html>
 {% endif %}
